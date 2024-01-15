@@ -1,0 +1,27 @@
+a {
+	text-decoration: none;
+	color: #96173B;
+	position: relative;
+}
+
+a::after {
+	display: block;
+	content: '';
+	position: absolute;
+	left: 0;
+	bottom: -3px;
+	width: 100%;
+	border-bottom: solid;
+	/* Réduit initialement la largeur du soulignement à 0, le rendant invisible */
+	transform: scaleX(0);
+	/* Définit le point d'origine de la transformation (coin supérieur gauche du pseudo-élément) */
+	transform-origin: 0% 0%;
+	transition: transform 500ms ease-in-out;
+}
+
+a:hover::after {
+	/* Augmente la largeur du soulignement à 100% (visible) au survol */
+	transform: scaleX(1);
+	/* Maintient le point d'origine de la transformation (coin inférieur gauche du pseudo-élément) */
+	transform-origin: 0% 100%;
+}
