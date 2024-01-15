@@ -1,0 +1,132 @@
+/* Burger menu */
+.menu-open {
+	display: none;
+}
+
+.menu-open-button {
+	position: relative;
+	display: block;
+	cursor: pointer;
+	width: 60px;
+	height: 60px;
+	border: 1px solid #831024;
+	background-color: #C51A37;
+	border-radius: 50%;
+	transition: transform 300ms ease-in-out;
+}
+
+.menu-open:not(:checked)+.menu-open-button:hover {
+	transform: scale(1.2);
+}
+
+.menu-line {
+	position: absolute;
+	display: block;
+	width: 60px;
+	height: 10px;
+	left: 50%;
+	transform: translateX(-50%) translateY(-50%);
+	top: 50%;
+}
+
+span.menu-line-1::before {
+	content: '';
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	background-color: white;
+	height: 2px;
+	width: 20px;
+	top: -3px;
+}
+
+span.menu-line-2::before {
+	content: '';
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	background-color: white;
+	height: 2px;
+	width: 20px;
+	top: 4px;
+}
+
+span.menu-line-3::before {
+	content: '';
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	background-color: white;
+	height: 2px;
+	width: 20px;
+	top: 11px;
+}
+
+/* Burger checked */
+
+/* Pivoter la ligne */
+.menu-open:checked+.menu-open-button span.menu-line-1::before {
+	transform: translateX(-50%) rotate(45deg);
+	top: 4px;
+}
+
+/* Rends celle du milieu transparente */
+.menu-open:checked+.menu-open-button span.menu-line-2::before {
+	opacity: 0;
+}
+
+/* Pivoter la ligne */
+.menu-open:checked+.menu-open-button span.menu-line-3::before {
+	transform: translateX(-50%) rotate(-45deg);
+	top: 4px;
+}
+
+.menu-open-button:checked .menu-open-button {
+	transform: scale(1);
+	transition: transform 330ms ease-in-out;
+}
+
+/* Menu item */
+.menu-item {
+	position: absolute;
+	display: block;
+	cursor: pointer;
+	width: 60px;
+	height: 60px;
+	border: 1px solid #831024;
+	background-color: #C51A37;
+	border-radius: 50%;
+	margin-top: 10px;
+	padding: auto;
+	color: white;
+	transition: top 330ms ease-in-out, opacity 330ms ease-in-out;
+}
+
+.menu-item:hover {
+	color: #C51A37;
+}
+
+.menu-item i {
+	content: "";
+	position: absolute;
+	left: 22px;
+	top: 22px;
+}
+
+.menu-item:hover {
+	background-color: white;
+}
+
+/* Affichage des liens */
+.menu-open:checked~.menu-item {
+	position: relative;
+	top: 100%;
+	opacity: 1;
+}
+
+/* Lorsque menu-open n'est pas coché */
+.menu-open:not(:checked)~.menu-item {
+	opacity: 1;
+	top: 100%;
+	position: absolute;
+}
