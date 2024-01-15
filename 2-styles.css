@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+body {
+	font-family: 'Roboto', sans-serif;
+}
+
+/* div principale */
+.toggle {
+	position: relative;
+	display: inline-block;
+}
+
+/* <input> on remet à 0*/
+.toggle-cb {
+	display: none;
+}
+
+/* Forme principal */
+.toggle-label {
+	display: block;
+	cursor: pointer;
+	width: 150px;
+	height: 40px;
+	background-color: #EBEBEB;
+	border: 2px solid #C3C3C3;
+	border-radius: 30px;
+	position: relative;
+	transition: background-color 0.2s;
+}
+
+/* Label No */
+.toggle-label:before {
+	content: "No";
+	position: absolute;
+	font-size: x-large;
+	font-weight: bold;
+	top: 50%;
+	left: 55%;
+	transform: translateY(-50%);
+	color: #C3C3C3;
+	transition: color 0.2s;
+}
+
+/* Label Yes */
+.toggle-label:after {
+	content: "Yes";
+	position: absolute;
+	font-size: x-large;
+	font-weight: bold;
+	top: 15%;
+	left: 20%;
+	transform: translateY(-50%) scale(0);
+	color: white;
+	transition: transform 0.2s, color 0.2s;
+}
+
+/* Rond extérieur */
+.toggle-inner {
+	position: absolute;
+	top: -8px;
+	left: -10px;
+	width: 55px;
+	height: 55px;
+	border-radius: 50%;
+	border: 2px solid #C3C3C3;
+	background-color: #fff;
+	transition: transform 0.2s;
+}
+
+/* Couleur de fond quand la checkbox est activée */
+.toggle-cb:checked+.toggle-label {
+	background-color: #E1013C;
+}
+
+/* Afficher le texte "Yes" quand la checkbox est activée */
+.toggle-cb:checked+.toggle-label:after {
+	transform: scale(1);
+}
+
+/* Afficher le texte "Yes" quand la checkbox est activée */
+.toggle-cb:checked+.toggle-label:before {
+	transform: scale(0);
+}
+
+/* Fait bouger le rond extérieur */
+.toggle-cb:checked+.toggle-label .toggle-inner {
+	transform: translateX(180%);
+}
+
